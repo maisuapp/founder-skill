@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Founder-Skill & MaisuApp Hub - Enterprise UI</title>
+    <title>Founder-Skill Hub | Multi-Project Business Validator</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
@@ -15,13 +15,13 @@
         }
 
         .glass-card {
-            background: rgba(30, 41, 59, 0.7);
+            background: rgba(30, 41, 59, 0.75);
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(51, 65, 85, 0.5);
+            border: 1px solid rgba(51, 65, 85, 0.6);
         }
 
         .glow {
-            box-shadow: 0 0 40px -10px rgba(99, 102, 241, 0.2);
+            box-shadow: 0 0 50px -15px rgba(99, 102, 241, 0.25);
         }
     </style>
 </head>
@@ -29,11 +29,11 @@
 <body class="bg-slate-950 text-slate-100 min-h-screen antialiased selection:bg-indigo-500 selection:text-white">
 
     <!-- Top Navigation -->
-    <header class="sticky top-0 z-50 glass-card border-b border-slate-800/80 px-6 py-4">
+    <header class="sticky top-0 z-50 glass-card border-b border-slate-800 px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center space-x-3">
                 <div
-                    class="h-10 w-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-teal-400 flex items-center justify-center shadow-lg shadow-indigo-500/20">
+                    class="h-10 w-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-teal-400 flex items-center justify-center shadow-lg shadow-indigo-500/30">
                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
@@ -44,56 +44,46 @@
                     <h1
                         class="font-extrabold text-lg bg-gradient-to-r from-indigo-400 to-teal-300 bg-clip-text text-transparent">
                         Founder-Skill Hub</h1>
-                    <p class="text-xs text-slate-400">MaisuApp Intelligence & Validation System</p>
+                    <p class="text-xs text-slate-400">Multi-Project Validation & Unit Economics Engine</p>
                 </div>
             </div>
-            <div class="flex items-center space-x-4">
-                <span
-                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                    <span class="w-2 h-2 mr-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                    Ready for Launch
-                </span>
+            <div class="flex items-center space-x-3">
+                <button onclick="openNewProjectModal()"
+                    class="inline-flex items-center px-4 py-2 rounded-xl text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-600/30 transition">
+                    <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                    </svg>
+                    Novo Projeto
+                </button>
                 <a href="https://github.com/maisuapp/founder-skill" target="_blank"
-                    class="hidden sm:inline-flex items-center px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-all duration-200">
-                    GitHub Repository
+                    class="hidden sm:inline-flex items-center px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+                    GitHub
                 </a>
             </div>
         </div>
     </header>
 
     <!-- Main Container -->
-    <main class="max-w-7xl mx-auto px-6 py-10 space-y-10">
+    <main class="max-w-7xl mx-auto px-6 py-10 space-y-8">
 
-        <!-- Hero Section -->
-        <div class="relative glass-card rounded-3xl p-8 lg:p-12 overflow-hidden glow">
-            <div
-                class="absolute -right-20 -top-20 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none">
+        <!-- Project Selector Bar -->
+        <div class="glass-card rounded-2xl p-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center space-x-3 w-full md:w-auto">
+                <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Projeto Ativo:</span>
+                <select id="projectSelect" onchange="switchProject(this.value)"
+                    class="bg-slate-900 border border-slate-700 text-white text-sm rounded-xl px-4 py-2 focus:outline-none focus:border-indigo-500 w-full md:w-64 font-medium">
+                    <!-- Dynamic Options -->
+                </select>
             </div>
-            <div class="relative z-10 max-w-2xl">
-                <span class="text-xs font-semibold text-indigo-400 uppercase tracking-widest mb-3 block">Executivo &
-                    Estratégico</span>
-                <h2 class="text-3xl lg:text-4xl font-extrabold tracking-tight text-white mb-4">Valide seu modelo de
-                    negócios antes de gastar um único centavo.</h2>
-                <p class="text-slate-300 text-base mb-6 leading-relaxed">
-                    O <strong>MaisuApp</strong> foi rigorosamente avaliado através dos 11 frameworks do Founder-Skill
-                    (Inspirado em Alex Hormozi, Peter Thiel e Steve Jobs). Confira abaixo as métricas unitárias, unit
-                    economics e o planejamento de expansão.
-                </p>
-                <div class="flex flex-wrap gap-3">
-                    <a href="#metrics"
-                        class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition shadow-lg shadow-indigo-600/30">Ver
-                        Métricas & CFO</a>
-                    <a href="#pitch"
-                        class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700 transition">Explorar
-                        o Pitch</a>
-                </div>
+            <div class="flex items-center space-x-2 text-xs text-slate-400">
+                <span id="projectTagline" class="italic">Selecione ou crie um novo projeto para analisar.</span>
             </div>
         </div>
 
         <!-- Metric Grid -->
-        <section id="metrics" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div class="glass-card rounded-2xl p-6 transition hover:border-slate-700">
-                <div class="flex justify-between items-start mb-4">
+                <div class="flex justify-between items-start mb-3">
                     <span class="text-xs font-medium text-slate-400">Margem de Contribuição</span>
                     <span class="p-2 rounded-xl bg-teal-500/10 text-teal-400">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -103,13 +93,13 @@
                         </svg>
                     </span>
                 </div>
-                <p class="text-3xl font-extrabold text-white mb-1">93%</p>
-                <p class="text-xs text-teal-400 font-medium">$9.30 de lucro por lead / crédito</p>
+                <p id="metricMargin" class="text-3xl font-extrabold text-white mb-1">0%</p>
+                <p id="metricMarginSub" class="text-xs text-teal-400 font-medium">Lucro por unidade</p>
             </div>
 
             <div class="glass-card rounded-2xl p-6 transition hover:border-slate-700">
-                <div class="flex justify-between items-start mb-4">
-                    <span class="text-xs font-medium text-slate-400">Ponto de Equilíbrio</span>
+                <div class="flex justify-between items-start mb-3">
+                    <span class="text-xs font-medium text-slate-400">Ponto de Equilíbrio (Break-even)</span>
                     <span class="p-2 rounded-xl bg-indigo-500/10 text-indigo-400">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -117,12 +107,12 @@
                         </svg>
                     </span>
                 </div>
-                <p class="text-3xl font-extrabold text-white mb-1">18 leads</p>
-                <p class="text-xs text-indigo-400 font-medium">Equilíbrio operacional diário</p>
+                <p id="metricBreakeven" class="text-3xl font-extrabold text-white mb-1">0</p>
+                <p id="metricBreakevenSub" class="text-xs text-indigo-400 font-medium">Unidades por dia</p>
             </div>
 
             <div class="glass-card rounded-2xl p-6 transition hover:border-slate-700">
-                <div class="flex justify-between items-start mb-4">
+                <div class="flex justify-between items-start mb-3">
                     <span class="text-xs font-medium text-slate-400">Lucro Operacional (Ano 1)</span>
                     <span class="p-2 rounded-xl bg-emerald-500/10 text-emerald-400">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -132,12 +122,12 @@
                         </svg>
                     </span>
                 </div>
-                <p class="text-3xl font-extrabold text-white mb-1">$54,390</p>
-                <p class="text-xs text-emerald-400 font-medium">Baseado em 50 leads / dia</p>
+                <p id="metricProfit" class="text-3xl font-extrabold text-white mb-1">$0</p>
+                <p id="metricProfitSub" class="text-xs text-emerald-400 font-medium">Após custos fixos</p>
             </div>
 
             <div class="glass-card rounded-2xl p-6 transition hover:border-slate-700">
-                <div class="flex justify-between items-start mb-4">
+                <div class="flex justify-between items-start mb-3">
                     <span class="text-xs font-medium text-slate-400">Payback do Investimento</span>
                     <span class="p-2 rounded-xl bg-amber-500/10 text-amber-400">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -146,21 +136,22 @@
                         </svg>
                     </span>
                 </div>
-                <p class="text-3xl font-extrabold text-white mb-1">Mês 8</p>
-                <p class="text-xs text-amber-400 font-medium">Retorno total do capital inicial</p>
+                <p id="metricPayback" class="text-3xl font-extrabold text-white mb-1">-</p>
+                <p id="metricPaybackSub" class="text-xs text-amber-400 font-medium">Retorno do capital inicial</p>
             </div>
         </section>
 
-        <!-- Charts & Projections Section -->
+        <!-- Charts & Details Section -->
         <section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <!-- Chart Container -->
             <div class="lg:col-span-2 glass-card rounded-3xl p-6 lg:p-8 flex flex-col justify-between">
                 <div>
                     <div class="flex justify-between items-center mb-6">
                         <h3 class="text-lg font-bold text-white">Projeção de Lucro Mensal (Ano 1)</h3>
-                        <span
-                            class="text-xs text-slate-400 bg-slate-800 px-3 py-1 rounded-full border border-slate-700">Em
-                            Dólar (USD)</span>
+                        <button onclick="openEditModal()"
+                            class="text-xs text-indigo-400 hover:text-indigo-300 font-semibold bg-indigo-950/50 px-3 py-1.5 rounded-xl border border-indigo-800/50 transition">
+                            Editar Parâmetros
+                        </button>
                     </div>
                     <div class="h-72 w-full">
                         <canvas id="profitChart"></canvas>
@@ -168,117 +159,305 @@
                 </div>
             </div>
 
-            <!-- Quick Info / Stack -->
-            <div class="glass-card rounded-3xl p-6 lg:p-8 space-y-6">
-                <h3 class="text-lg font-bold text-white">Stack Tecnológica & Foco</h3>
-                <div class="space-y-4">
-                    <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
-                        <div class="text-xs font-semibold text-indigo-400 uppercase">Backend</div>
-                        <div class="text-sm font-bold text-white mt-0.5">Ruby on Rails</div>
-                    </div>
-                    <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
-                        <div class="text-xs font-semibold text-teal-400 uppercase">Frontend Web</div>
-                        <div class="text-sm font-bold text-white mt-0.5">Node.js (SEO & Performance)</div>
-                    </div>
-                    <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
-                        <div class="text-xs font-semibold text-emerald-400 uppercase">Aplicativo Mobile (iOS)</div>
-                        <div class="text-sm font-bold text-white mt-0.5">Swift Nativo</div>
-                    </div>
-                    <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
-                        <div class="text-xs font-semibold text-amber-400 uppercase">Infraestrutura</div>
-                        <div class="text-sm font-bold text-white mt-0.5">Amazon AWS (Auto-scaling)</div>
+            <!-- Pitch & Idea Details -->
+            <div class="glass-card rounded-3xl p-6 lg:p-8 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">Detalhes do Projeto</h3>
+                    <div id="projectDescription" class="text-sm text-slate-300 space-y-3 mb-6 leading-relaxed">
+                        <!-- Dynamic Description -->
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Detailed Pitch & Workflow -->
-        <section id="pitch" class="glass-card rounded-3xl p-8 lg:p-12">
-            <h3 class="text-2xl font-bold text-white mb-6">Como o MaisuApp Funciona</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="space-y-4">
-                    <h4 class="text-lg font-semibold text-indigo-400 flex items-center">
-                        <span
-                            class="w-8 h-8 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center mr-3 font-bold text-sm">1</span>
-                        Para Quem Quer Contratar
-                    </h4>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        O cliente especifica a necessidade e o local em dois formulários simples. Após a confirmação por
-                        SMS, o algoritmo pré-seleciona os profissionais mais adequados com base em distância e
-                        velocidade. Os 3 primeiros que responderem entram em contato em até 30 minutos.
-                    </p>
-                </div>
-                <div class="space-y-4">
-                    <h4 class="text-lg font-semibold text-teal-400 flex items-center">
-                        <span
-                            class="w-8 h-8 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center mr-3 font-bold text-sm">2</span>
-                        Para Prestadores de Serviços
-                    </h4>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        O profissional cadastra seu anúncio detalhado, CEP e celular. Utiliza um pacote de créditos para
-                        liberar novos pedidos. O foco em comunicação via SMS garante alta acessibilidade mesmo em
-                        celulares com menor capacidade de memória.
-                    </p>
+                <div class="pt-4 border-t border-slate-800 text-xs text-slate-400 flex justify-between">
+                    <span id="projectCurrency">Moeda: BRL/USD</span>
+                    <button onclick="deleteCurrentProject()" class="text-red-400 hover:underline">Excluir
+                        Projeto</button>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="glass-card border-t border-slate-800/80 mt-20 py-8 px-6 text-center text-sm text-slate-500">
-        <p>MaisuApp &bull; Desenvolvido com Founder-Skill & Enterprise UI/UX</p>
-    </footer>
+    <!-- Modal: New Project / Edit Parameters -->
+    <div id="projectModal"
+        class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="glass-card rounded-3xl max-w-lg w-full p-6 lg:p-8 border border-slate-700 shadow-2xl">
+            <h3 id="modalTitle" class="text-xl font-bold text-white mb-4">Adicionar Novo Projeto</h3>
+            <form id="projectForm" onsubmit="saveProject(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 uppercase mb-1">Nome do Projeto</label>
+                    <input type="text" id="inpName" required
+                        class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-indigo-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 uppercase mb-1">Tagline / Resumo
+                        Curto</label>
+                    <input type="text" id="inpTagline" required
+                        class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-indigo-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 uppercase mb-1">Descrição / Pitch</label>
+                    <textarea id="inpPitch" rows="3" required
+                        class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-indigo-500"></textarea>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-400 uppercase mb-1">Preço por Unidade
+                            ($)</label>
+                        <input type="number" step="0.01" id="inpPrice" required
+                            class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-indigo-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-400 uppercase mb-1">Custo Variável
+                            ($)</label>
+                        <input type="number" step="0.01" id="inpVariable" required
+                            class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-indigo-500">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-400 uppercase mb-1">Custos Fixos Mensais
+                            ($)</label>
+                        <input type="number" id="inpFixed" required
+                            class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-indigo-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-400 uppercase mb-1">Investimento Inicial
+                            ($)</label>
+                        <input type="number" id="inpStartup" required
+                            class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-indigo-500">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 uppercase mb-1">Unidades Planejadas /
+                        Dia</label>
+                    <input type="number" id="inpPlanDay" required
+                        class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-indigo-500">
+                </div>
+                <div class="flex justify-end space-x-3 pt-4 border-t border-slate-800">
+                    <button type="button" onclick="closeModal()"
+                        class="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-semibold hover:bg-slate-700 transition">Cancelar</button>
+                    <button type="submit"
+                        class="px-5 py-2 rounded-xl bg-indigo-600 text-white text-xs font-semibold hover:bg-indigo-500 shadow-lg shadow-indigo-600/30 transition">Salvar
+                        Projeto</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-    <!-- Chart Script -->
+    <!-- App Logic Script -->
     <script>
-        const ctx = document.getElementById('profitChart').getContext('2d');
-        const profitChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Mês 1', 'Mês 2', 'Mês 3', 'Mês 4', 'Mês 5', 'Mês 6', 'Mês 7', 'Mês 8', 'Mês 9', 'Mês 10', 'Mês 11', 'Mês 12'],
-                datasets: [{
-                    label: 'Lucro Líquido Mensal ($)',
-                    data: [-2210, -815, 580, 1975, 3370, 4765, 6160, 6718, 7555, 8392, 8950, 8950],
-                    borderColor: '#6366f1',
-                    backgroundColor: 'rgba(99, 102, 241, 0.1)',
-                    borderWidth: 3,
-                    fill: true,
-                    tension: 0.4,
-                    pointBackgroundColor: '#2dd4bf',
-                    pointBorderColor: '#1e293b',
-                    pointBorderWidth: 2,
-                    pointRadius: 5,
-                    pointHoverRadius: 7
-                }]
+        let projects = JSON.parse(localStorage.getItem('founder_projects')) || [
+            {
+                id: 'maisuapp',
+                name: 'MaisuApp',
+                tagline: 'O marketplace que acha o profissional ideal para você.',
+                pitch: 'Conecta clientes em busca de serviços cotidianos a prestadores autônomos através de pré-filtragem por algoritmo e escolha humana.',
+                price: 10.00,
+                variable: 0.70,
+                fixed: 5000,
+                startup: 15000,
+                planDay: 50
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false },
-                    tooltip: {
-                        backgroundColor: '#1e293b',
-                        titleColor: '#f8fafc',
-                        bodyColor: '#cbd5e1',
-                        borderColor: '#334155',
-                        borderWidth: 1,
-                        padding: 12,
-                        displayColors: false
-                    }
-                },
-                scales: {
-                    x: {
-                        grid: { color: 'rgba(51, 65, 85, 0.2)' },
-                        ticks: { color: '#94a3b8', font: { family: 'Plus Jakarta Sans' } }
-                    },
-                    y: {
-                        grid: { color: 'rgba(51, 65, 85, 0.2)' },
-                        ticks: { color: '#94a3b8', font: { family: 'Plus Jakarta Sans' } }
-                    }
+            {
+                id: 'matchacafe',
+                name: 'Moss Matcha Bar',
+                tagline: 'Café de matcha artesanal em Toronto.',
+                pitch: 'Café focado em lattes de matcha cerimoniais de alta qualidade com modelo walk-in.',
+                price: 6.50,
+                variable: 1.74,
+                fixed: 26540,
+                startup: 25280,
+                planDay: 383
+            }
+        ];
+
+        let currentProjectId = projects[0].id;
+        let chartInstance = null;
+
+        function init() {
+            renderProjectSelect();
+            loadProject(currentProjectId);
+        }
+
+        function renderProjectSelect() {
+            const select = document.getElementById('projectSelect');
+            select.innerHTML = '';
+            projects.forEach(p => {
+                const opt = document.createElement('option');
+                opt.value = p.id;
+                opt.textContent = p.name;
+                if (p.id === currentProjectId) opt.selected = true;
+                select.appendChild(opt);
+            });
+        }
+
+        function switchProject(id) {
+            currentProjectId = id;
+            loadProject(id);
+        }
+
+        function loadProject(id) {
+            const p = projects.find(item => item.id === id);
+            if (!p) return;
+
+            document.getElementById('projectTagline').textContent = p.tagline;
+            document.getElementById('projectDescription').innerHTML = `
+                <p><strong>Pitch:</strong> ${p.pitch}</p>
+                <p><strong>Preço Unitário:</strong> $${p.price.toFixed(2)} | <strong>Custo Variável:</strong> $${p.variable.toFixed(2)}</p>
+                <p><strong>Custos Fixos:</strong> $${p.fixed.toLocaleString()}/mês | <strong>Setup Inicial:</strong> $${p.startup.toLocaleString()}</p>
+            `;
+            document.getElementById('projectCurrency').textContent = `Volume Planejado: ${p.planDay} unidades/dia`;
+
+            // Calculate Unit Economics
+            const contribution = p.price - p.variable;
+            const margin = (contribution / p.price) * 100;
+            const monthlyFixed = p.fixed;
+            const monthlyDays = 30;
+            const breakevenDay = Math.ceil(monthlyFixed / (contribution * monthlyDays));
+            const monthlyRevenue = p.planDay * contribution * monthlyDays;
+            const monthlyProfit = monthlyRevenue - monthlyFixed;
+            const annualProfit = monthlyProfit * 12;
+
+            // Simulate monthly profit ramp (12 months)
+            let monthlyProfits = [];
+            let cumulative = -p.startup;
+            let paybackMonth = '-';
+
+            for (let m = 1; m <= 12; m++) {
+                let factor = Math.min(1, m / 10); // Ramp up over 10 months
+                let rev = (p.planDay * factor) * contribution * monthlyDays;
+                let prof = rev - monthlyFixed;
+                monthlyProfits.push(Math.round(prof));
+                cumulative += prof;
+                if (cumulative >= 0 && paybackMonth === '-') {
+                    paybackMonth = `Mês ${m}`;
                 }
             }
-        });
+
+            // Update UI Metrics
+            document.getElementById('metricMargin').textContent = margin.toFixed(0) + '%';
+            document.getElementById('metricMarginSub').textContent = `$${contribution.toFixed(2)} por unidade`;
+            document.getElementById('metricBreakeven').textContent = breakevenDay;
+            document.getElementById('metricBreakevenSub').textContent = 'Unidades por dia';
+            document.getElementById('metricProfit').textContent = '$' + Math.round(annualProfit).toLocaleString();
+            document.getElementById('metricProfitSub').textContent = `Média $${Math.round(monthlyProfit).toLocaleString()}/mês`;
+            document.getElementById('metricPayback').textContent = paybackMonth;
+            document.getElementById('metricPaybackSub').textContent = `Após $${p.startup.toLocaleString()} de setup`;
+
+            renderChart(monthlyProfits);
+        }
+
+        function renderChart(data) {
+            const ctx = document.getElementById('profitChart').getContext('2d');
+            if (chartInstance) chartInstance.destroy();
+
+            chartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8', 'M9', 'M10', 'M11', 'M12'],
+                    datasets: [{
+                        label: 'Lucro Líquido ($)',
+                        data: data,
+                        borderColor: '#6366f1',
+                        backgroundColor: 'rgba(99, 102, 241, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: '#2dd4bf',
+                        pointBorderColor: '#1e293b',
+                        pointBorderWidth: 2,
+                        pointRadius: 5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#1e293b',
+                            titleColor: '#f8fafc',
+                            bodyColor: '#cbd5e1',
+                            borderColor: '#334155',
+                            borderWidth: 1,
+                            padding: 12
+                        }
+                    },
+                    scales: {
+                        x: { grid: { color: 'rgba(51, 65, 85, 0.2)' }, ticks: { color: '#94a3b8' } },
+                        y: { grid: { color: 'rgba(51, 65, 85, 0.2)' }, ticks: { color: '#94a3b8' } }
+                    }
+                }
+            });
+        }
+
+        function openNewProjectModal() {
+            document.getElementById('modalTitle').textContent = 'Adicionar Novo Projeto';
+            document.getElementById('projectForm').reset();
+            document.getElementById('projectModal').classList.remove('hidden');
+        }
+
+        function openEditModal() {
+            const p = projects.find(item => item.id === currentProjectId);
+            if (!p) return;
+            document.getElementById('modalTitle').textContent = `Editar: ${p.name}`;
+            document.getElementById('inpName').value = p.name;
+            document.getElementById('inpTagline').value = p.tagline;
+            document.getElementById('inpPitch').value = p.pitch;
+            document.getElementById('inpPrice').value = p.price;
+            document.getElementById('inpVariable').value = p.variable;
+            document.getElementById('inpFixed').value = p.fixed;
+            document.getElementById('inpStartup').value = p.startup;
+            document.getElementById('inpPlanDay').value = p.planDay;
+            document.getElementById('projectModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('projectModal').classList.add('hidden');
+        }
+
+        function saveProject(e) {
+            e.preventDefault();
+            const name = document.getElementById('inpName').value;
+            const id = name.toLowerCase().replace(/[^a-z0-9]/g, '');
+            const tagline = document.getElementById('inpTagline').value;
+            const pitch = document.getElementById('inpPitch').value;
+            const price = parseFloat(document.getElementById('inpPrice').value);
+            const variable = parseFloat(document.getElementById('inpVariable').value);
+            const fixed = parseFloat(document.getElementById('inpFixed').value);
+            const startup = parseFloat(document.getElementById('inpStartup').value);
+            const planDay = parseInt(document.getElementById('inpPlanDay').value);
+
+            const existingIndex = projects.findIndex(p => p.id === id);
+            const newProj = { id, name, tagline, pitch, price, variable, fixed, startup, planDay };
+
+            if (existingIndex >= 0) {
+                projects[existingIndex] = newProj;
+            } else {
+                projects.push(newProj);
+            }
+
+            localStorage.setItem('founder_projects', JSON.stringify(projects));
+            closeModal();
+            renderProjectSelect();
+            switchProject(id);
+        }
+
+        function deleteCurrentProject() {
+            if (projects.length <= 1) {
+                alert('Você precisa manter pelo menos um projeto.');
+                return;
+            }
+            if (confirm('Deseja realmente excluir este projeto?')) {
+                projects = projects.filter(p => p.id !== currentProjectId);
+                localStorage.setItem('founder_projects', JSON.stringify(projects));
+                currentProjectId = projects[0].id;
+                renderProjectSelect();
+                loadProject(currentProjectId);
+            }
+        }
+
+        window.onload = init;
     </script>
 </body>
 
